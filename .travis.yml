@@ -1,6 +1,8 @@
 language: csharp
 solution: MvcAppSample/MvcAppSample.sln
-script:    # the following commands are just examples, use whatever your build process requires
-  - ./build.sh
-  - ./test.sh
-  - grep "Test Results" build.log
+script:  install:
+  - nuget MvcAppSample/MvcAppSample.sln
+  - nuget install NUnit.Runners -Version 3.5.0 -OutputDirectory testrunner
+  script:
+  - xbuild /p:Configuration=Release MvcAppSample/MvcAppSample.sln
+  - mono ./testrunner/NUnit.Runners.3.5.0/tools/nunit-console.exe ./MvcAppSample.Tests/bin/Release/MvcAppSample.Tests.dll
