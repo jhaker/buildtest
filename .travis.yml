@@ -1,5 +1,7 @@
 language: csharp
 solution: MvcAppSample/MvcAppSample.sln
-script:  install:
-  - nuget MvcAppSample/MvcAppSample.sln
+install:
+  - nuget restore MvcAppSample/MvcAppSample.sln
   - nuget install NUnit.Runners -Version  2.6.4 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release MvcAppSample.sln
