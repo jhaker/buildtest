@@ -4,4 +4,4 @@ install:
   - nuget restore MvcAppSample/MvcAppSample.sln
   - nuget install NUnit.Runners -Version  2.6.4 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release MvcAppSample/MvcAppSample.sln
+  - msbuild /p:Configuration=Release MvcAppSample/MvcAppSample.sln
