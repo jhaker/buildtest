@@ -3,4 +3,4 @@ solution: MvcAppSample/MvcAppSample.sln
 install:
   - nuget restore MvcAppSample/MvcAppSample.sln
 script:
-  - xbuild /p:Configuration=Release MvcAppSample/MvcAppSample.sln
+  - dotnet /p:Configuration=Release MvcAppSample/MvcAppSample.sln
